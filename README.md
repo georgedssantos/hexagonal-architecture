@@ -34,3 +34,13 @@ src/
 │       └── ProdutoService.java
 └── HexagonalarchitectureApplication.java
 ```
+
+### Vantagens da Arquitetura Hexagonal:
+
+- **Separação de Preocupações**: Clarifica e separa as responsabilidades entre a lógica de negócios e os detalhes técnicos.
+  
+- **Testabilidade**: Facilita a escrita de testes unitários e de integração, pois a lógica de negócios não depende diretamente de infraestrutura externa.
+
+- **Flexibilidade e Manutenibilidade**: Permite trocar ou atualizar os adaptadores sem impactar a lógica de negócios, desde que os contratos (portas) sejam mantidos.
+
+- **Reutilização de Código**: Os adaptadores podem ser reutilizados em diferentes contextos ou projetos, desde que respeitem os contratos definidos pelas portas.
