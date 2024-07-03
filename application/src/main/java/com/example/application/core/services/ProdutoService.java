@@ -1,4 +1,4 @@
-package com.example.application.core.usecases;
+package com.example.application.core.services;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.application.core.model.Produto;
 import com.example.application.core.ports.ProdutoRepositoryPort;
+import com.example.application.core.usecases.ProdutoUseCase;
 
 @Service
 public class ProdutoService implements ProdutoUseCase {
