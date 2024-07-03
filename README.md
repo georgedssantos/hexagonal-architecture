@@ -56,6 +56,6 @@ src/
 * Java 21
 * Spring Boot 3.3.1
 * Gradle
-* H2 Data Base - http://localhost:8080/h2-console
+* H2 Data Base - JDBC URL: jdbc:h2:mem:testdb - http://localhost:8080/h2-console
 * Springdoc-openapi - Swagger-ui - http://localhost:8080/swagger-ui/index.html
 
