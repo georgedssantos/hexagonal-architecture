@@ -32,8 +32,9 @@ src/
 │   │   └── Produto.java
 │   ├── ports/
 │   │   └── ProdutoRepositoryPort.java
+│   ├── services/
+│   │   └── ProdutoService.java
 │   └── usecases/
-│       └── ProdutoService.java
 │       └── ProdutoUseCase.java
 └── Application.java
 ```
