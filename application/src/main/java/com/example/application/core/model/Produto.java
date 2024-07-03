@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,12 +23,15 @@ public class Produto {
 	@Column(name = "ID_PRODUTO", nullable = false)
     private Long id;
 	
+	@NotBlank
 	@Column(name = "NOME", nullable = false)
     private String nome;
     
+	@NotBlank
 	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 	
+	@NotNull
 	@Column(name = "PRECO", nullable = false)
     private double preco;
 

@@ -8,45 +8,67 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.application.core.model.Produto;
-import com.example.application.core.usecases.ProdutoService;
+import com.example.application.core.usecases.ProdutoUseCase;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
 	
 	@Autowired
-    private ProdutoService produtoService;
+    private ProdutoUseCase produtoUseCase;
 	
-    @GetMapping("/test")
-    @ResponseStatus(HttpStatus.OK)
-    public String healthCheck() {
-    	return "Olá, mundo!";
-    }
-  
-    @GetMapping("/{id}")
-    public Produto getProdutoById(@PathVariable("id") Long id) {
-        return produtoService.findProdutoById(id);
-    }
+	/*
+	 * CADASTRA UM PRODUTO
+	 */
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Produto saveProduto(@RequestBody @Valid Produto produto) {
+		return this.produtoUseCase.save(produto);
+	}
+	
+	
+	/*
+	 * ATUALIZA UM PRODUTO
+	 */
+	@PutMapping("/{id}")
+	public Produto update(@PathVariable("id") Long id, @RequestBody @Valid Produto produto) {
+		produto.setId(id);
+		return this.produtoUseCase.update(produto);
+	}
+	
+	/*
+	 * BUSCA UM PRODUTO POR ID
+	 */
+	@GetMapping("/{id}")
+	public Produto getProductById(@PathVariable("id") Long id) {
+		return this.produtoUseCase.findById(id);
+	}
+	
+	/*
+	 * LISTA DE PRODUTOS
+	 */
+	@GetMapping
+	public List<Produto> list() {
+		return this.produtoUseCase.findAll();
+	}
+	
+	
+	/*
+	 * EXCLUI UM PRODUTO POR ID
+	 */
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public void delete(@PathVariable("id") Long id) {
+		this.produtoUseCase.deleteById(id);
+	}
 
-    @GetMapping
-    public List<Produto> getAllProdutos() {
-        return produtoService.findAllProdutos();
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void saveProduto(@RequestBody Produto produto) {
-        produtoService.saveProduto(produto);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteProdutoById(@PathVariable("id") Long id) {
-        produtoService.deleteProdutoById(id);
-    }
 }

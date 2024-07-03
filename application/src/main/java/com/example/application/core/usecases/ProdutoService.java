@@ -9,24 +9,34 @@ import com.example.application.core.model.Produto;
 import com.example.application.core.ports.ProdutoRepositoryPort;
 
 @Service
-public class ProdutoService {
+public class ProdutoService implements ProdutoUseCase {
 	
 	@Autowired
-    private ProdutoRepositoryPort produtoRepository;
+	private ProdutoRepositoryPort produtoRepositoryPort;
 
-    public Produto findProdutoById(Long id) {
-        return produtoRepository.findById(id);
+	@Override
+    public Produto save(Produto produto) {
+		return this.produtoRepositoryPort.save(produto);
     }
 
-    public List<Produto> findAllProdutos() {
-        return produtoRepository.findAll();
+	@Override
+    public void deleteById(Long id) {
+		this.produtoRepositoryPort.deleteById(id);
     }
 
-    public void saveProduto(Produto produto) {
-        produtoRepository.save(produto);
-    }
+	@Override
+	public Produto update(Produto product) {		
+		return this.produtoRepositoryPort.update(product);
+	}
 
-    public void deleteProdutoById(Long id) {
-        produtoRepository.deleteById(id);
-    }
+	@Override
+	public List<Produto> findAll() {
+		return this.produtoRepositoryPort.findAll();
+	}
+
+	@Override
+	public Produto findById(Long id) {
+		return this.produtoRepositoryPort.findById(id);
+	}
+		
 }
