@@ -7,7 +7,7 @@ Um padrão de arquitetura de software que promove a separação das responsabili
 ## Descrição dos Componentes
 
 1. ** Núcleo da Aplicação (Core): </br>
-- Contém a lógica de negócios da aplicação. </br>
+- Contém a lógica de negócios da aplicação. O núcleo de negócios interage com outros componentes por meio de portas e adaptadores. </br>
 2. ** Model: </br>
 - Define a estrutura de dados do Produto. </br>
 3. ** Portas (Ports):</br>
