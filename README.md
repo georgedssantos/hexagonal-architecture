@@ -1,6 +1,7 @@
 # hexagonal-architecture
 📚 ☕️ Simple Java Application With Hexagonal Architecture
 
+
 Um padrão de arquitetura de software que promove a separação das responsabilidades, permitindo que a lógica de negócios seja independente de detalhes de implementação como persistência ou interface do usuário.
 
 ## Descrição dos Componentes
