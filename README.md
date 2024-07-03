@@ -47,3 +47,15 @@ src/
 - **Flexibilidade e Manutenibilidade**: Permite trocar ou atualizar os adaptadores sem impactar a lógica de negócios, desde que os contratos (portas) sejam mantidos.
 
 - **Reutilização de Código**: Os adaptadores podem ser reutilizados em diferentes contextos ou projetos, desde que respeitem os contratos definidos pelas portas.
+
+
+![alt tag](https://github.com/georgedssantos/hexagonal-architecture/blob/main/documentacao/tela-1.PNG)
+![alt tag](https://github.com/georgedssantos/hexagonal-architecture/blob/main/documentacao/tela-2.PNG)
+
+### Configuração
+* Java 21
+* Spring Boot 3.3.1
+* Gradle
+* H2 Data Base - http://localhost:8080/h2-console
+* Springdoc-openapi - Swagger-ui - http://localhost:8080/swagger-ui/index.html
+
