@@ -50,9 +50,15 @@ src/
 
 - **Reutilização de Código**: Os adaptadores podem ser reutilizados em diferentes contextos ou projetos, desde que respeitem os contratos definidos pelas portas.
 
-
+1 - Tela do Swagger </br>
 ![alt tag](https://github.com/georgedssantos/hexagonal-architecture/blob/main/documentacao/tela-1.PNG)
+
+2 - Validação com HttpStatus 400 Bad Request
 ![alt tag](https://github.com/georgedssantos/hexagonal-architecture/blob/main/documentacao/tela-2.PNG)
+
+3 - Confirmação no H2 Data Base após o HttpStatus 201 Created
+![alt tag](https://github.com/georgedssantos/hexagonal-architecture/blob/main/documentacao/tela-3.PNG)
+
 
 ### Configuração
 * Java 21
