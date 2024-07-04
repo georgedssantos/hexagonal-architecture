@@ -14,24 +14,25 @@ Um padrão de arquitetura de software que promove a separação das responsabili
 - Define as interfaces que serão implementadas por adaptadores. </br>
 - Use Cases: Contém os serviços que operam sobre os modelos de dados. </br>
 3. ** Adaptadores (Adapters): </br>
-- Implementam os ports definidos no core. ProdutoRepository é uma implementação de ProdutoRepositoryPort. ProdutoController é um controlador REST que injeta ProdutoUseCase para lidar com operações HTTP. </br>
-- Persistence: Implementa a interface ProdutoRepositoryPort para persistência em banco de dados. </br>
+- Implementam os ports definidos no core. ProdutoPersistence é uma implementação de ProdutoPort. ProdutoController é um controlador REST que injeta ProdutoUseCase para lidar com operações HTTP. </br>
+- Persistence: Implementa a interface ProdutoPort e injeta SpringDataProdutoRepository para persistência em banco de dados. </br>
 - Web: Implementa a interface de ProdutoController para expor endpoints HTTP. </br>
 
 
 ```python
 src/
 ├── adapters/
-│   ├── persistence/
+│   ├── repository/
 │   │   └── SpringDataProdutoRepository.java
-│   │   └── ProdutoRepository.java
+│   ├── persistence/
+│   │   └── ProdutoPersistence.java
 │   └── web/
 │       └── ProdutoController.java
 ├── core/
 │   ├── model/
 │   │   └── Produto.java
 │   ├── ports/
-│   │   └── ProdutoRepositoryPort.java
+│   │   └── ProdutoPort.java
 │   ├── services/
 │   │   └── ProdutoService.java
 │   └── usecases/
