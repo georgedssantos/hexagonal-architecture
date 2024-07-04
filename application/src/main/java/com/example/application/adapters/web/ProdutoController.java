@@ -31,7 +31,7 @@ public class ProdutoController {
 	 */
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Produto saveProduto(@RequestBody @Valid Produto produto) {
+	public Produto saveProduto(@Valid @RequestBody Produto produto) {
 		return this.produtoUseCase.save(produto);
 	}
 	
@@ -40,7 +40,7 @@ public class ProdutoController {
 	 * ATUALIZA UM PRODUTO
 	 */
 	@PutMapping("/{id}")
-	public Produto update(@PathVariable("id") Long id, @RequestBody @Valid Produto produto) {
+	public Produto update(@PathVariable("id") Long id, @Valid @RequestBody Produto produto) {
 		produto.setId(id);
 		return this.produtoUseCase.update(produto);
 	}

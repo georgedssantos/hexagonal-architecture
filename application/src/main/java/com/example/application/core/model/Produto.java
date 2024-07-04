@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,17 +23,17 @@ public class Produto {
 	@Column(name = "ID_PRODUTO", nullable = false)
     private Long id;
 	
-	@NotBlank
+	@NotBlank(message = "O nome é obrigatório")
 	@Column(name = "NOME", nullable = false)
     private String nome;
     
-	@NotBlank
+	@NotBlank(message = "A descrição é obrigatória")
 	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 	
-	@NotNull
+	//@Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="O preço é obrigatório")
+	@PositiveOrZero
 	@Column(name = "PRECO", nullable = false)
     private double preco;
-
 
 }
