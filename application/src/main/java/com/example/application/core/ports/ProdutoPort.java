@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.application.core.model.Produto;
 
-public interface ProdutoRepositoryPort {
+public interface ProdutoPort {
     
     Produto save(Produto produto);
     

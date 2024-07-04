@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
 
+import com.example.application.adapters.repository.SpringDataProdutoRepository;
 import com.example.application.core.exceptions.DataViolationException;
 import com.example.application.core.exceptions.NotFoundException;
 import com.example.application.core.model.Produto;
-import com.example.application.core.ports.ProdutoRepositoryPort;
+import com.example.application.core.ports.ProdutoPort;
 
 @Repository
-public class ProdutoRepository implements ProdutoRepositoryPort {
+public class ProdutoPersistence implements ProdutoPort {
 
     @Autowired
     private SpringDataProdutoRepository springDataProdutoRepository;

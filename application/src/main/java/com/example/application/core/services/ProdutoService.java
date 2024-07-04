@@ -6,38 +6,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.application.core.model.Produto;
-import com.example.application.core.ports.ProdutoRepositoryPort;
+import com.example.application.core.ports.ProdutoPort;
 import com.example.application.core.usecases.ProdutoUseCase;
 
 @Service
 public class ProdutoService implements ProdutoUseCase {
 	
 	@Autowired
-	private ProdutoRepositoryPort produtoRepositoryPort;
+	private ProdutoPort produtoPort;
 
 	@Override
     public Produto save(Produto produto) {
-		return this.produtoRepositoryPort.save(produto);
+		return this.produtoPort.save(produto);
     }
 
 	@Override
     public void deleteById(Long id) {
-		this.produtoRepositoryPort.deleteById(id);
+		this.produtoPort.deleteById(id);
     }
 
 	@Override
 	public Produto update(Produto product) {		
-		return this.produtoRepositoryPort.update(product);
+		return this.produtoPort.update(product);
 	}
 
 	@Override
 	public List<Produto> findAll() {
-		return this.produtoRepositoryPort.findAll();
+		return this.produtoPort.findAll();
 	}
 
 	@Override
 	public Produto findById(Long id) {
-		return this.produtoRepositoryPort.findById(id);
+		return this.produtoPort.findById(id);
 	}
 		
 }

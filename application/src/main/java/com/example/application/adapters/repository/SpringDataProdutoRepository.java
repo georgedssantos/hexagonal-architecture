@@ -1,4 +1,4 @@
-package com.example.application.adapters.persistence;
+package com.example.application.adapters.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
